@@ -10,7 +10,7 @@ License: MIT
 
 Library "reducTyped"
   Path: src
-  Modules: Store
+  Modules: Store, Reducers
 
 Executable "test"
   Path: test
