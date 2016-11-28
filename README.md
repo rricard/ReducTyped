@@ -79,4 +79,4 @@ That's why I will try to commit to the following roadmap at least:
 - [ ] Implement reducer utilities such as `combine_reducers`
 - [ ] Implement a middleware system
 
-I'm also open to pull requests if you wnat to help, and don't hesitate to post issues if you see something wrong!
+I'm also open to pull requests if you want to help, and don't hesitate to post issues if you see something wrong!
