@@ -26,7 +26,7 @@ let reducer state action =
 From there, you can initialize a store (you have to provide an initial value):
 
 ```ocaml
-let store = createStore reducer 0.0;;
+let store = Store.createStore reducer 0.0;;
 ```
 
 Finally, you can now dispatch actions into your store:
