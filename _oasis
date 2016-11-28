@@ -1,0 +1,23 @@
+OASISFormat: 0.4
+BuildTools: ocamlbuild
+Plugins: META (0.4), DevFiles (0.4)
+
+Name: ReducTyped
+Version: 0.1
+Synopsis: Correctly typed state management for OCaml inspired by Redux
+Authors: Robin Ricard
+License: MIT
+
+Library "reducTyped"
+  Path: src
+  Modules: Store
+
+Executable "test"
+  Path: test
+  MainIs: test.ml
+  BuildDepends: reducTyped, oUnit
+
+Test "test"
+  TestTools: test
+  Command: $test
+  WorkingDirectory: test
