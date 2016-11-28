@@ -1,0 +1,18 @@
+opam-version: "1.2"
+name: "reducTyped"
+version: "0.1"
+maintainer: "Robin Ricard <ricard.robin@gmail.com>"
+authors: "Robin Ricard <ricard.robin@gmail.com>"
+homepage: "https://github.com/rricard/ReducTyped"
+bug-reports: "https://github.com/rricard/ReducTyped/issues"
+license: "MIT"
+dev-repo: "https://github.com/rricard/ReducTyped"
+build: [
+  ["./configure" "--prefix=%{prefix}%"]
+  [make]
+]
+install: [make "install"]
+remove: ["ocamlfind" "remove" "reducTyped"]
+depends: [
+  "ocamlfind" {build}
+]
