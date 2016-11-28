@@ -58,7 +58,7 @@ You can use [OPAM](https://opam.ocaml.org) to install this package. I'll try to 
 First, you will need to pin the repository:
 
 ```sh
-opam pin add -y reducTyped git@github.com:rricard/ReducTyped
+opam pin add -y reducTyped git@github.com:rricard/ReducTyped.git
 ```
 
 And then, you will be able to install it:
