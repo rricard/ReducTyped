@@ -1,6 +1,6 @@
 opam-version: "1.2"
 name: "reducTyped"
-version: "0.2"
+version: "0.3"
 maintainer: "Robin Ricard <ricard.robin@gmail.com>"
 authors: "Robin Ricard <ricard.robin@gmail.com>"
 homepage: "https://github.com/rricard/ReducTyped"

@@ -1,5 +1,5 @@
 open OUnit2;;
-open Store;;
+open ReducTyped.Store;;
 
 type operation_action =
   | Add of float

@@ -1,5 +1,5 @@
 open OUnit2;;
-open Reducers;;
+open ReducTyped.Reducers;;
 
 type action =
   | Increment
