@@ -14,7 +14,7 @@ let createStore reducer initialState =
     (* Deref the state, execute the reducer with it, re-assign it *)
     state := reducer !state action;
     (* Call each listener *)
-    List.map (fun l -> l ()) !listeners;
+    List.iter (fun l -> l ()) !listeners;
     ();
   )
   and subscribe = (fun listener ->
