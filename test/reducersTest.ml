@@ -1,4 +1,5 @@
 open OUnit2;;
+open ReducTypedStructs;;
 open ReducTyped.Reducers;;
 
 type action =
@@ -18,13 +19,13 @@ let combine_reducers_test test_ctxt =
     )
   ) in
   let reducer = combine_reducers reducers in
-  let state = StateMap.(
+  let state = ReducerMap.(
     empty |>
     add "value" 1 |>
     add "op_count" 1
   ) in
   let newState = reducer state Decrement in
-  StateMap.(
+  ReducerMap.(
     assert_equal (find "value" newState) 0;
     assert_equal (find "op_count" newState) 2
   );;

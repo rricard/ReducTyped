@@ -4,6 +4,8 @@ Correctly typed state management for OCaml inspired by [Redux](http://redux.js.o
 
 ## Usage example
 
+### Store
+
 First, define your application's state and action type:
 
 ```ocaml
@@ -67,6 +69,49 @@ And then, you will be able to install it:
 opam install reducTyped
 ```
 
+### Create complex application reducers
+
+Maintaining your whole state in a single function can be hard, that's why you should split your state in multiple parts. You can use `combine_reducers` to split a reducer into smaller ones:
+
+```ocaml
+type action =
+  | Increment
+  | Decrement;;
+
+let reducers = ReducTypedStructs.ReducerMap.(
+  empty |>
+  add "value" (fun value action ->
+      match action with
+      | Increment -> value + 1
+      | Decrement -> value - 1
+    ) |>
+  add "op_count" (fun count action ->
+    count + 1
+  )
+);;
+
+let reducer = ReducTyped.Reducers.combine_reducers reducers;;
+
+
+let initial_state = ReducTypedStructs.ReducerMap.(
+  empty |>
+  add "value" 0 |>
+  add "op_count" 0
+);;
+
+let store = ReducTyped.Store.create_store reducer initial_state;;
+
+store.dispatch Increment;;
+store.dispatch Decrement;;
+
+let last_state = store.get_state ();;
+
+ReducTypedStructs.ReducerMap.(
+  assert ((find "value" last_state) = 0);
+  assert ((find "op_count" last_state) = 2);
+);;
+```
+
 ## Roadmap
 
 Keep in mind this is for now a toy project with no real-world use yet! I'm just starting with OCaml and implementing a Redux-like system is perfect to understand the key concepts of the language!
@@ -76,7 +121,8 @@ However, I think it'll be relevant fast: [Reason](https://facebook.github.io/rea
 That's why I will try to commit to the following roadmap at least:
 
 - [x] Implement the core of the system a "reducable" store
-- [ ] Implement reducer utilities such as `combine_reducers`
+- [x] Implement reducer utilities such as `combine_reducers`
 - [ ] Implement a middleware system
+- [ ] Implement more utilities
 
 I'm also open to pull requests if you want to help, and don't hesitate to post issues if you see something wrong!

@@ -1,5 +1,6 @@
-module ReducerMap = Map.Make(String);;
-module StateMap = ReducerMap;;
+open ReducTypedStructs;;
 
 let combine_reducers reducers state action =
-  ReducerMap.mapi (fun k reducer -> reducer (StateMap.find k state) action) reducers;;
+  ReducerMap.mapi (fun k reducer ->
+    reducer (ReducerMap.find k state) action
+  ) reducers;;
