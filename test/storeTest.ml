@@ -11,11 +11,11 @@ let reducer state action =
   | Multiply x -> state *. x;;
 
 let storeCreationTest test_ctxt =
-  let store = createStore reducer 0.0 in
+  let store = create_store reducer 0.0 in
   assert_equal (store.get_state ()) 0.0;;
 
 let storeDispatchAndGetTest test_ctxt =
-  let store = createStore reducer 0.0 in
+  let store = create_store reducer 0.0 in
   store.dispatch (Add 1.0);
   assert_equal (store.get_state ()) 1.0;
   store.dispatch (Add 1.0);
@@ -26,7 +26,7 @@ let storeListeners test_ctxt =
   let listener1_called = ref false
   and listener2_called = ref false
   and listener3_called = ref false
-  and store = createStore reducer 0.0 in
+  and store = create_store reducer 0.0 in
   store.subscribe (fun () -> 
     listener1_called := true;
     ();

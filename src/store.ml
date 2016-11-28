@@ -6,8 +6,8 @@ type ('stateType, 'actionType) store = {
   subscribe: listener -> listener;
 };;
 
-let createStore reducer initialState =
-  let state = ref initialState in
+let create_store reducer initial_state =
+  let state = ref initial_state in
   let listeners = ref [] in
   let get_state = (fun () -> !state)
   and dispatch = (fun action ->

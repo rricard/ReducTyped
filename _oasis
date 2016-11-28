@@ -3,7 +3,7 @@ BuildTools: ocamlbuild
 Plugins: META (0.4), DevFiles (0.4)
 
 Name: reducTyped
-Version: 0.1
+Version: 0.2
 Synopsis: Correctly typed state management for OCaml inspired by Redux
 Authors: Robin Ricard
 License: MIT
