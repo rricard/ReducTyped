@@ -34,7 +34,7 @@ Finally, you can now dispatch actions into your store:
 ```ocaml
 store.dispatch (Add 1.5);;
 store.dispatch (Multiply 2.0);;
-assert (store.get_state ()) 3.0;;
+assert ((store.get_state ()) = 3.0);;
 ```
 
 You can also subscribe callbacks to store changes:
