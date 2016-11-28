@@ -78,20 +78,21 @@ type action =
   | Increment
   | Decrement;;
 
+let value_reducer value action =
+  match action with
+  | Increment -> value + 1
+  | Decrement -> value - 1;;
+
+let operation_count_reducer count action =
+  count + 1;;
+
 let reducers = ReducTypedStructs.ReducerMap.(
   empty |>
-  add "value" (fun value action ->
-      match action with
-      | Increment -> value + 1
-      | Decrement -> value - 1
-    ) |>
-  add "op_count" (fun count action ->
-    count + 1
-  )
+  add "value" value_reducer |>
+  add "op_count" operation_count_reducer
 );;
 
 let reducer = ReducTyped.Reducers.combine_reducers reducers;;
-
 
 let initial_state = ReducTypedStructs.ReducerMap.(
   empty |>
